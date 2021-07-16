@@ -1,0 +1,56 @@
+{
+  "name": "HELIoT-server",
+  "version": "1.0.0",
+  "description": "platform that integrates data from the building environment with IoT sensors in a web-based system across our HETIC campus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j2frise/heliot_server.git"
+  },
+  "keywords": [
+    "server",
+    "http",
+    "api",
+    "rest",
+    "heroku",
+    "iot",
+    "hetic",
+    "smart building"
+  ],
+  "author": "jarce boukoro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j2frise/heliot_server/issues"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
+  "homepage": "https://github.com/j2frise/heliot_server#readme",
+  "dependencies": {
+    "agora-access-token": "^2.0.4",
+    "async": "^3.2.0",
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.13",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
+    "twilio": "^3.60.0"
+  }
+}

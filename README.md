@@ -1,2 +1,1 @@
-# heliot_server
-HELIoT server
+# HELIoT server

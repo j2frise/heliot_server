@@ -1,0 +1,32 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "database_development_heliot",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test_heliot",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "ahwpobzvwqcdjx",
+    "password": "12916cfa561654afb3b8249ea71d4ea26a4c5d377a181c0a5e2732cc9740fd72",
+    "database": "djleohpu185d",
+    "host": "ec2-54-78-36-245.eu-west-1.compute.amazonaws.com",
+    "dialect":  "postgres",
+    "protocol": "postgres",
+    "ssl":true, 
+    "dialectOptions":{ 
+      "ssl": {
+        "require":true 
+      } 
+    },
+    "use_env_variable": "DATABASE_URL"
+
+  }
+}

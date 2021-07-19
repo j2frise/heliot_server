@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Entities.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    image: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Entities',

@@ -1,7 +1,9 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
-const GOOGLE_CALLBACK_URL = "http://localhost:8080/auth/user/";
+const GOOGLE_CALLBACK_URL = "https://heliot.netlify.app/auth/user/";
+//const GOOGLE_CALLBACK_URL = "http://localhost:8080/auth/user/";
+
 
 passport.use(
   new GoogleStrategy(

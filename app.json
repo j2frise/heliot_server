@@ -10,6 +10,5 @@
     "iot",
     "smart building"
   ],
-  "image": "heroku/nodejs",
-  "addons": []
+  "image": "heroku/nodejs"
 }

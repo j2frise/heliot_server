@@ -3,6 +3,13 @@
   "description": "platform that integrates data from the building environment with IoT sensors in a web-based system across our HETIC campus",
   "repository": "https://github.com/j2frise/heliot_server",
   "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/main/public/node.svg",
-  "keywords": ["node", "express", "heroku", "iot", "smart building"],
-  "image": "heroku/nodejs"
+  "keywords": [
+    "node",
+    "express",
+    "heroku",
+    "iot",
+    "smart building"
+  ],
+  "image": "heroku/nodejs",
+  "addons": []
 }

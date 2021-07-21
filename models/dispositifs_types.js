@@ -15,7 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Dispositifs_types.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    min: DataTypes.INTEGER,
+    max: DataTypes.INTEGER,
+    unit: DataTypes.STRING,
+
   }, {
     sequelize,
     modelName: 'Dispositifs_types',

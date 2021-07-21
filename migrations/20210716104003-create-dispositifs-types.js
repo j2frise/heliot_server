@@ -12,6 +12,18 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      min: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+      max: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
+      unit: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -5,9 +5,16 @@ var apiRouter = require('./router/apiRouter').router;
 var simpleRouter = require('./router/simpleRouter').router;
 var jwtUtils = require('./utils/jwt.utils');
 var html = require('./send/html');
+const cookieSession = require("cookie-session");
+
+require("./auth/passportGoogleSSO");
+require("./auth/passport");
+
+const passport = require("passport");
+
 
 //const PORT = process.env.PORT || 8080
-const PORT = process.env.PORT || 5000
+//const PORT = process.env.PORT || 5000
 
 var cors = require('cors');
 
@@ -21,6 +28,16 @@ server.use(express.static(__dirname + '/data'));
 //Body parser configuration
 server.use(bodyParser.urlencoded({extended: true}));
 server.use(bodyParser.json());
+
+server.use(
+    cookieSession({
+      maxAge: 24 * 60 * 60 * 1000,
+      keys: ["testhfhjbhbvjbchjvhxjhb"],
+    })
+  );
+
+server.use(passport.initialize());
+server.use(passport.session());
 
 //configure routes
 server.get('/',function(req, res){
@@ -43,6 +60,6 @@ server.use('/', simpleRouter);
 server.use('/api', [verifAccessAPI, apiRouter]);
 
 //Launch server
-server.listen(PORT, function(){
+server.listen(process.env.PORT, function(){
     console.log("serveur HELIoT en marche? COOL :)");
 });

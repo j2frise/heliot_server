@@ -9,17 +9,29 @@ var jwtUtils = require('../utils/jwt.utils');
 module.exports = {
   login: function(req, res){
     //get params
-    var email = req.body.email?req.body.email:null;
-    var token = req.body.token?req.body.token:null;
+    console.log(req.user);
+    var email = req.user.email;
 
-    if(!(email && token)){
+    if(!(email)){
+      return res.status(201).json({'status':500, 'response': "Données manquantes"});
+    }
+
+    let getHETIC = email.split("@")
+    getHETIC = getHETIC[1].split(".")
+
+    if(!(getHETIC.length == 2 && (getHETIC[0].toLowerCase() =="hetic" || getHETIC[0].toLowerCase() =="arcplex"))){
+      return res.status(503).json({'status':401, 'response': 'votre compte n\'est pas autorisé'});
+    } 
+
+    if(!(email)){
       return res.status(201).json({'status':500, 'response': "Données manquantes"});
     }
 
     return res.status(201).json({
       'status':201,
       'data': {
-        'token': jwtUtils.generateTokenForUser(email)
+        'token': jwtUtils.generateTokenForUser(email),
+        'user': req.user
       }
     });
   }

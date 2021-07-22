@@ -3,6 +3,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var apiRouter = require('./router/apiRouter').router;
 var simpleRouter = require('./router/simpleRouter').router;
+var facadeRouter = require('./router/facadeRouter').router;
+
 var jwtUtils = require('./utils/jwt.utils');
 var html = require('./send/html');
 const cookieSession = require("cookie-session");
@@ -55,8 +57,20 @@ var verifAccessAPI =  function(req, res, next){
     next();
 }
 
+var verifAccessFacade =  function(req, res, next){
+    var headerAuth  = req.headers['authorization'];
+    var user = jwtUtils.facade(headerAuth);
+
+    if(!user){
+        return res.status(503).json({'status':503, 'response': 'accès interdit ou incorrect'});
+    }
+    next();
+}
+
 server.use('/', simpleRouter);
 server.use('/api', [verifAccessAPI, apiRouter]);
+server.use('/facade', [verifAccessFacade,facadeRouter]);
+
 
 //Launch server
 server.listen(PORT, function(){

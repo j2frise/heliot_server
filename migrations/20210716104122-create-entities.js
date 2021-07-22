@@ -44,6 +44,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      nodeId: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       image: {
         allowNull: false,
         type: Sequelize.STRING

@@ -6,7 +6,10 @@ var moment  = require('moment');
 
 //Routes
 module.exports = {
-    dispositifsDataList: function(req, res) {
+    test: function(req, res) {
+      res.status(200).json({"status":200, "response": "youpi mon cul"});
+  },
+  dispositifsDataList: function(req, res) {
     models.Dispositifs_datas.findAll({
       //
     }).then(function(list) {

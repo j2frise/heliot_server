@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   Entities.init({
     name: DataTypes.STRING,
     image: DataTypes.STRING,
+    nodeId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Entities',

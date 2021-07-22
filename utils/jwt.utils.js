@@ -25,5 +25,13 @@ module.exports = {
       } catch(err) { }
     }
     return user;
+  },
+  facade: function(authorization) {
+    var verif = null;
+    var token = module.exports.parseAuthorization(authorization);
+    if(token != null) {
+      verif = token == JWT_SIGN_SECRET
+    }
+    return verif;
   }
 }

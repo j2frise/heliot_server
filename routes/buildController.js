@@ -44,7 +44,7 @@ module.exports = {
         {  model: models.Floors },
         {  model: models.Buildings }
       ],
-      where: { staId: {[Op.ne]:2} }
+      where: { statId: {[Op.ne]:2} }
       //
     }).then(function(list) {
       if (list.length) {

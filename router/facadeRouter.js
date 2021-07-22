@@ -7,7 +7,7 @@ exports.router = (function(){
     var facadeRouter = express.Router();
     
     facadeRouter.route('/entities/').get(buildCtrl.entitiesList);
-    apiRouter.route('/dispositifs/').get(iotDataCtrl.dispositifsList);
+    facadeRouter.route('/dispositifs/').get(iotDataCtrl.dispositifsList);
     facadeRouter.route('/test/').get(buildCtrl.test);
 
 

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       models.Entities.belongsTo(models.Floors, {foreignKey: 'floorId'});
       models.Entities.belongsTo(models.Entities_types, {foreignKey: 'entityTypeId'});
 
-      models.Entities.hasMany(models.Dispositifs, {foreignKey: 'dispositifId'});
+      models.Entities.hasMany(models.Dispositifs, {foreignKey: 'entityId'});
     }
   };
   Entities.init({

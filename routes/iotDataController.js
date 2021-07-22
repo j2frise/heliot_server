@@ -25,9 +25,9 @@ module.exports = {
         { model: models.Entities },
         {  model: models.Dispositifs_types },
         {  model: models.That_dispositifs },
-        {  model: models.Buildings }
+        {  model: models.Stats }
       ],
-      where: { staId: {[Op.ne]:2} }
+      where: { statId: {[Op.ne]:2} }
     }).then(function(list) {
       if (list.length) {
         res.status(200).json({"status":200, "data": list});
@@ -54,9 +54,9 @@ module.exports = {
         },
         {  model: models.Dispositifs_types },
         {  model: models.That_dispositifs },
-        {  model: models.Buildings }
+        {  model: models.Stats }
       ],
-      where : {entityId : entityId, staId: {[Op.ne]:2}}
+      where : {entityId : entityId, statId: {[Op.ne]:2}}
     }).then(function(list) {
       if (list.length) {
         res.status(200).json({"status":200, "data": list});

@@ -58,6 +58,7 @@ module.exports = {
   },
   entitiesListFacade: function(req, res) {
     models.Entities.findAll({
+      attributes: ['id', 'nodeId'],
       where: { statId: {[Op.ne]:2} }
       //
     }).then(function(list) {

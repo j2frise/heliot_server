@@ -40,8 +40,9 @@ module.exports = {
   },
   dispositifsListFacade: function(req, res) {
     models.Dispositifs.findAll({
+      attributes: ['id', 'entityId', 'dispositifTypeId'],
       include: [
-        {  model: models.Dispositifs_types },
+        {  model: models.Dispositifs_types, attributes: ['id', 'temp', 'min', 'max'] },
       ],
       where: { statId: {[Op.ne]:2} }
     }).then(function(list) {

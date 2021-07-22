@@ -6,12 +6,26 @@ var moment  = require('moment');
 
 //Routes
 module.exports = {
-    test: function(req, res) {
+  test: function(req, res) {
       res.status(200).json({"status":200, "response": "youpi mon cul"});
   },
   dispositifsDataList: function(req, res) {
+    const dateVal = req.params.date
     models.Dispositifs_datas.findAll({
-      //
+      include: [
+        { model: models.Entities,
+          include: [
+            { model: models.Entities_types },
+            {  model: models.Stats },
+            {  model: models.Floors },
+            {  model: models.Buildings }
+          ],
+        },
+        {  model: models.Dispositifs_types },
+        {  model: models.That_dispositifs },
+        {  model: models.Buildings }
+      ],
+      where: {date_register: dateVal}
     }).then(function(list) {
       if (list.length) {
         res.status(200).json({"status":200, "data": list});
@@ -24,6 +38,13 @@ module.exports = {
   },
   entitiesList: function(req, res) {
     models.Entities.findAll({
+      include: [
+        { model: models.Entities_types },
+        {  model: models.Stats },
+        {  model: models.Floors },
+        {  model: models.Buildings }
+      ],
+      where: { staId: {[Op.ne]:2} }
       //
     }).then(function(list) {
       if (list.length) {

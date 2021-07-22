@@ -13,10 +13,12 @@ exports.router = (function(){
 
     //IoT data routes
     apiRouter.route('/presences/').get(iotDataCtrl.presencesList);
-    apiRouter.route('/dispositifs/:entityId').get(iotDataCtrl.dispositifsList);
+    apiRouter.route('/dispositifs/:entityId').get(iotDataCtrl.dispositifsListOneEntity);
+    apiRouter.route('/dispositifs/').get(iotDataCtrl.dispositifsList);
+
 
     //Build routes
-    apiRouter.route('/dispositifs-data/').get(buildCtrl.dispositifsDataList);
+    apiRouter.route('/dispositifs-data/:date').get(buildCtrl.dispositifsDataList);
     apiRouter.route('/entities/').get(buildCtrl.entitiesList);
     apiRouter.route('/buildings/').get(buildCtrl.buildingsList);
     apiRouter.route('/floors/').get(buildCtrl.floorsList);

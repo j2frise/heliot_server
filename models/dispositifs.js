@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   Dispositifs.init({
     name: DataTypes.STRING,
-    temp: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Dispositifs',

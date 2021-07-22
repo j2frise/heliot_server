@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     min: DataTypes.INTEGER,
     max: DataTypes.INTEGER,
     unit: DataTypes.STRING,
-
+    temp: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Dispositifs_types',

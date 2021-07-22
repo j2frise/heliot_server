@@ -6,8 +6,8 @@ var iotDataCtrl = require('../routes/iotDataController');
 exports.router = (function(){
     var facadeRouter = express.Router();
     
-    facadeRouter.route('/entities/').get(buildCtrl.entitiesList);
-    facadeRouter.route('/dispositifs/').get(iotDataCtrl.dispositifsList);
+    facadeRouter.route('/entities/').get(buildCtrl.entitiesListFacade);
+    facadeRouter.route('/dispositifs/').get(iotDataCtrl.dispositifsListFacade);
     facadeRouter.route('/test/').get(buildCtrl.test);
 
 

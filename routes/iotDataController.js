@@ -42,7 +42,7 @@ module.exports = {
     models.Dispositifs.findAll({
       attributes: ['id', 'entityId', 'dispositifTypeId', 'name'],
       include: [
-        {  model: models.Dispositifs_types, attributes: ['id', 'temp', 'min', 'max'] },
+        {  model: models.Dispositifs_types, attributes: ['id', 'temp', 'min', 'max', 'unit'] },
       ],
       where: { statId: {[Op.ne]:2} }
     }).then(function(list) {

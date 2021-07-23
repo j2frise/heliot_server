@@ -18,8 +18,7 @@ module.exports = {
                 {  model: models.Stats },
                 {  model: models.Floors },
                 {  model: models.Buildings }
-              ],
-              where: {id: entityId}
+              ]
             },
             {  model: models.Dispositifs_types },
             {  model: models.That_dispositifs }          

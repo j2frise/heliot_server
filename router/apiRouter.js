@@ -15,6 +15,7 @@ exports.router = (function(){
     apiRouter.route('/presences/').get(iotDataCtrl.presencesList);
     apiRouter.route('/dispositifs/:entityId').get(iotDataCtrl.dispositifsListOneEntity);
     apiRouter.route('/dispositifs/').get(iotDataCtrl.dispositifsList);
+    apiRouter.route('/decision/:nodeId/:sensor/:data/:id').get(iotDataCtrl.decision);
 
 
     //Build routes

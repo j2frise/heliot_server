@@ -3,10 +3,38 @@ var models = require('../models');
 var asyncLib = require('async');
 const { Op } = require("sequelize");
 var moment  = require('moment');
+const mqtt = require("mqtt");
 
 //Routes
 module.exports = {
-    presencesList: function(req, res) {
+  decision: function(req, res) {
+    var topic = `WEB2-HETICLIOT/${req.params.nodeId}/${req.params.sensor}`;
+
+    const mqtt_url = "mqtt://hetic.arcplex.fr";
+    const options = {
+      port: 1883,
+      clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
+      username: "HETICLIOT",
+      password: "47580327",
+    };
+    const client = mqtt.connect(mqtt_url, options);
+    const data = {
+      "source_address": req.params.nodeId, 
+      "sensor_id": parseInt(req.params.sensor), 
+      "tx_time_ms_epoch": 1425334635362,
+      "data": {"value": parseInt(req.params.data), "id": req.params.id }
+    }
+
+    client.on('connect', function() { // When connected
+      // publish a message to a topic
+      client.publish(topic, data, function() {
+        console.log("Message is published");
+        client.end(); // Close the connection when published
+      });
+    });
+
+  },
+  presencesList: function(req, res) {
     models.Presences.findAll({
       //
     }).then(function(list) {

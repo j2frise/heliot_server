@@ -121,8 +121,7 @@ server.use('/facade', [verifAccessFacade,facadeRouter]);
 //Launch server
 server.listen(PORT, async function(){
     const topics = []
-    const dispositifsId = []
-
+    
     const dispositifs = await models.Dispositifs.findAll({
         attributes: ['id', 'name'],
         include:[
@@ -136,10 +135,7 @@ server.listen(PORT, async function(){
     for (const res of dispositifs) {
         topics.push( `WEB2-HETICLIOT/${res["dataValues"]["Entity"]["dataValues"]["nodeId"]}/${res["dataValues"]["name"]}`)
         dispositifsId.push(res["dataValues"]["id"])
-    }    
-
-    console.log(topics);   
-
+    }
 
     const mqtt_url = "mqtt://hetic.arcplex.fr";
     const options = {

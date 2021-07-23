@@ -8,8 +8,6 @@ exports.router = (function(){
     
     facadeRouter.route('/entities/').get(buildCtrl.entitiesListFacade);
     facadeRouter.route('/dispositifs/').get(iotDataCtrl.dispositifsListFacade);
-    facadeRouter.route('/test/').get(buildCtrl.test);
-
 
     return facadeRouter
 })();

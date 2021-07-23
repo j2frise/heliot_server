@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   Dispositifs_datas.init({
     data: DataTypes.STRING,
-    date_register: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Dispositifs_datas',

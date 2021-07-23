@@ -19,6 +19,7 @@ exports.router = (function(){
 
     //Build routes
     apiRouter.route('/dispositifs-data/:entityId').get(buildCtrl.dispositifsDataList);
+    apiRouter.route('/dispositifs-data/').get(buildCtrl.dispositifsDataListAll);
     apiRouter.route('/entities/').get(buildCtrl.entitiesList);
     apiRouter.route('/buildings/').get(buildCtrl.buildingsList);
     apiRouter.route('/floors/').get(buildCtrl.floorsList);

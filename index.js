@@ -113,7 +113,8 @@ var insertDatas = function(dispositifId, data){
 }
 
 server.use('/', simpleRouter);
-server.use('/api', [verifAccessAPI, apiRouter]);
+server.use('/api', apiRouter);
+//server.use('/api', [verifAccessAPI, apiRouter]);
 server.use('/facade', [verifAccessFacade,facadeRouter]);
 
 

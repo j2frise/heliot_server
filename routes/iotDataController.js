@@ -8,8 +8,8 @@ const mqtt = require("mqtt");
 //Routes
 module.exports = {
   decision: function(req, res) {
-    console.log("test");
     var topic = `WEB2-HETICLIOT/${req.params.nodeId}/${req.params.sensor}`;
+    const now = new Date()
 
     const mqtt_url = "mqtt://hetic.arcplex.fr";
     const options = {
@@ -22,13 +22,13 @@ module.exports = {
     const data = {
       "source_address": req.params.nodeId, 
       "sensor_id": parseInt(req.params.sensor), 
-      "tx_time_ms_epoch": 1425334635362,
+      "tx_time_ms_epoch": now.getTime(),
       "data": {"value": parseInt(req.params.data), "id": req.params.id }
     }
 
     client.on('connect', function() { // When connected
       // publish a message to a topic
-      client.publish(topic, data, function() {
+      client.publish(topic, JSON.stringify(data), function() {
         res.status(200).json({"status":200, "response": "Message is published"});
 
         client.end(); // Close the connection when published

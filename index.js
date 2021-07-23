@@ -15,8 +15,8 @@ require("./auth/passport");
 
 const passport = require("passport");
 
-//const PORT = process.env.PORT || 8080
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8080
+//const PORT = process.env.PORT || 5000
 
 var models = require('./models');
 var asyncLib = require('async');
@@ -134,7 +134,6 @@ server.listen(PORT, async function(){
     });
     for (const res of dispositifs) {
         topics.push( `WEB2-HETICLIOT/${res["dataValues"]["Entity"]["dataValues"]["nodeId"]}/${res["dataValues"]["name"]}`)
-        dispositifsId.push(res["dataValues"]["id"])
     }
 
     const mqtt_url = "mqtt://hetic.arcplex.fr";

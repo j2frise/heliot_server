@@ -8,6 +8,9 @@ const mqtt = require("mqtt");
 //Routes
 module.exports = {
   decision: function(req, res) {
+    res.status(200).json({"status":200, "response": "Message is published"});
+
+    /*console.log("test");
     var topic = `WEB2-HETICLIOT/${req.params.nodeId}/${req.params.sensor}`;
 
     const mqtt_url = "mqtt://hetic.arcplex.fr";
@@ -28,10 +31,11 @@ module.exports = {
     client.on('connect', function() { // When connected
       // publish a message to a topic
       client.publish(topic, data, function() {
-        console.log("Message is published");
+        res.status(200).json({"status":200, "response": "Message is published"});
+
         client.end(); // Close the connection when published
       });
-    });
+    });*/
 
   },
   presencesList: function(req, res) {

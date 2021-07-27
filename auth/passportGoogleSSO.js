@@ -8,8 +8,8 @@ const GOOGLE_CALLBACK_URL = "https://heliot.netlify.app/auth/user/";
 passport.use(
   new GoogleStrategy(
     {
-      clientID: "662618426239-u770377l0a41o3390e07fhca23clqbh9.apps.googleusercontent.com",
-      clientSecret: "WrFGLvztrz4vbDp7POiw5574",
+      clientID: null,
+      clientSecret: null,
       callbackURL: GOOGLE_CALLBACK_URL,
       passReqToCallback: true,
     },

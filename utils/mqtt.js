@@ -1,10 +1,10 @@
 
-const mqtt_url = "mqtt://hetic.arcplex.fr";
+const mqtt_url = null;
 const options = {
   port: 1883,
   clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-  username: "HETICLIOT",
-  password: "47580327",
+  username: null,
+  password: null,
 };
 const client = mqtt.connect(mqtt_url, options);
 
